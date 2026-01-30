@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar: Kecerdasan Digital & Deep Learning</title>
+    
+    <!-- Tailwind CSS (Framework untuk styling cepat) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (Untuk Ikon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi Custom Style -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Sky blue
+                            600: '#0284c7',
+                            900: '#0c4a6e', // Deep Navy
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .gradient-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        }
+        /* Animasi halus untuk kartu */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        /* Style khusus bottom nav agar icon aktif terlihat jelas */
+        .bottom-nav-item:active, .bottom-nav-item:focus {
+            color: #0ea5e9;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased pb-24 md:pb-0">
+
+    <!-- Navbar (Top - Desktop Only for Menu) -->
+    <nav class="fixed w-full z-50 glass-nav py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold text-brand-900 flex items-center gap-2">
+                <img src="https://iili.io/fLNBAP4.png" alt="Logo MN" class="h-10 w-auto">
+                <!-- Tampilan Mobile -->
+                <span class="md:hidden">MN Provinsi <span class="text-brand-500">Banten</span></span>
+                <!-- Tampilan Desktop -->
+                <span class="hidden md:inline">Matematika Nusantara <span class="text-brand-500">Provinsi Banten</span></span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition">Tentang</a>
+                <a href="#materi" class="hover:text-brand-600 transition">Materi</a>
+                <a href="#video" class="hover:text-brand-600 transition">Rekaman</a>
+                <a href="#toolkit" class="hover:text-brand-600 transition">AI Toolkit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-200 md:hidden z-50 flex justify-around items-center py-3 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <a href="#about" class="bottom-nav-item flex flex-col items-center text-slate-500 hover:text-brand-600 text-[10px] gap-1 px-2">
+            <i class="fa-solid fa-circle-info text-xl"></i>
+            <span>Tentang</span>
+        </a>
+        <a href="#materi" class="bottom-nav-item flex flex-col items-center text-slate-500 hover:text-brand-600 text-[10px] gap-1 px-2">
+            <i class="fa-solid fa-folder-open text-xl"></i>
+            <span>Materi</span>
+        </a>
+        <a href="#video" class="bottom-nav-item flex flex-col items-center text-slate-500 hover:text-brand-600 text-[10px] gap-1 px-2">
+            <i class="fa-solid fa-circle-play text-xl"></i>
+            <span>Rekaman</span>
+        </a>
+        <a href="#toolkit" class="bottom-nav-item flex flex-col items-center text-slate-500 hover:text-brand-600 text-[10px] gap-1 px-2">
+            <i class="fa-solid fa-robot text-xl"></i>
+            <span>Toolkit</span>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-hero text-white pt-32 pb-20 px-6 relative overflow-hidden">
+        <!-- Abstract Background Circles -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+
+        <div class="container mx-auto text-center relative z-10 max-w-4xl">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-800/50 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-6">
+                Webinar Series: Future Education
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                Transformasi Pendidikan Melalui <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-200">Kecerdasan Digital</span>
+            </h1>
+            <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Pusat sumber daya resmi untuk strategi pembelajaran mendalam (Deep Learning). Unduh materi, akses toolkit AI, dan pelajari kembali sesi webinar.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#materi" class="bg-white text-brand-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-50 transition shadow-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Akses Materi
+                </a>
+                <a href="#video" class="border border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-play"></i> Tonton Rekaman
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Intro / Context -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="absolute -inset-4 bg-brand-100 rounded-2xl transform -rotate-2"></div>
+                <!-- Placeholder Image -->
+                <img src="https://iili.io/fLN7Lej.png" alt="Digital Learning" class="relative rounded-xl shadow-lg w-full object-cover h-80">
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Mengapa "Deep Learning" Penting?</h2>
+                <blockquote class="border-l-4 border-brand-500 pl-4 italic text-slate-600 mb-6">
+                    "Teknologi tidak akan menggantikan guru. Namun, guru yang menggunakan teknologi dengan bijak akan menggantikan mereka yang tidak."
+                </blockquote>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Di halaman ini, Anda tidak hanya akan menemukan slide presentasi, tetapi juga kerangka kerja (framework) dan alat bantu untuk mengubah "Kecerdasan Digital" menjadi strategi pembelajaran yang nyata. Mari bergerak dari sekadar tahu menjadi paham dan mampu menerapkan.
+                </p>
+                <div class="flex items-center gap-4">
+                    <img src="https://i.ibb.co.com/x82PbSjy/IMG-20250927-210909.png" alt="Speaker" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <p class="font-bold text-slate-900">Feri Lee</p>
+                        <p class="text-sm text-slate-500">Praktisi EdTech & Konsultan Digital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Repository Materi -->
+    <section id="materi" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Pusat Unduhan</h2>
+                <p class="text-slate-600">Semua dokumen pendukung webinar tersedia di sini.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1: Slide -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-brand-100 w-24 h-24 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-brand-200"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-presentation-screen"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Materi Tayang (Slide)</h3>
+                        <p class="text-slate-500 text-sm mb-6">File presentasi lengkap mencakup data tren terbaru dan diagram strategi.</p>
+                        
+                        <!-- Added logic onclick checkAccess -->
+                        <a href="https://www.canva.com/design/DAG_neY14Yk/bv-X-pECVz4qUG8QHqRhGA/view?utm_content=DAG_neY14Yk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd53e3ebc78" 
+                           target="_blank" 
+                           onclick="return checkAccess(event)"
+                           class="w-full py-3 border border-slate-200 rounded-lg text-slate-700 font-semibold hover:border-brand-500 hover:text-brand-600 transition flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-regular fa-eye"></i> Preview
+                        </a>
+                        
+                        <!-- Added logic onclick checkAccess -->
+                        <button onclick="checkAccess(event, 'download')" class="w-full mt-3 py-3 bg-slate-900 rounded-lg text-white font-semibold hover:bg-slate-800 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Cheat Sheet -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-teal-100 w-24 h-24 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-teal-200"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Dokumen Implementasi Strategi DELTA</h3>
+                        <p class="text-slate-500 text-sm mb-6">Panduan satu halaman langkah demi langkah penerapan strategi DELTA di kelas.</p>
+                        
+                        <!-- Added logic onclick checkAccess -->
+                        <a href="https://www.canva.com/design/DAG_7mJxb7A/f3IMvjFe-4YGitQkIDp_-A/view?utm_content=DAG_7mJxb7A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hed90eb8264" 
+                           target="_blank" 
+                           onclick="return checkAccess(event)"
+                           class="w-full mt-auto py-3 bg-slate-900 rounded-lg text-white font-semibold hover:bg-slate-800 transition flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-download"></i> Download Dokumen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: E-Book -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-purple-100 w-24 h-24 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-purple-200"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Infografis DELTA</h3>
+                        <p class="text-slate-500 text-sm mb-6">Visualisasi ringkas mengenai tahapan dan poin kunci strategi.</p>
+                        
+                        <!-- Added logic onclick checkAccess -->
+                        <a href="https://i.ibb.co.com/5XVjHgyk/Infografis-DELTA.png" 
+                           target="_blank" 
+                           onclick="return checkAccess(event)"
+                           class="w-full mt-auto py-3 bg-slate-900 rounded-lg text-white font-semibold hover:bg-slate-800 transition flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-download"></i> Download Infografis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: AI Toolkit (Dark Mode Area) -->
+    <section id="toolkit" class="py-20 bg-slate-900 text-white relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-teal-400 font-bold tracking-wider uppercase text-sm">Deep Learning Toolkit</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">AI Prompts & Tools</h2>
+                </div>
+                <p class="text-slate-400 max-w-md mt-4 md:mt-0">
+                    Salin prompt ini langsung ke ChatGPT/Claude untuk membantu persiapan mengajar Anda.
+                </p>
+            </div>
+
+            <!-- Toolkit Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Prompt Card -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-semibold text-teal-400"><i class="fa-solid fa-robot mr-2"></i>Critical Thinking Generator</h4>
+                        <span class="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">Untuk Dosen/Guru</span>
+                    </div>
+                    <!-- Code Block -->
+                    <div class="bg-black/50 rounded-lg p-4 font-mono text-sm text-slate-300 mb-4 relative group">
+                        <p id="promptText">"Bertindaklah sebagai ahli pedagogi. Saya ingin mengajarkan topik [MASUKKAN TOPIK] kepada siswa usia [USIA]. Buatkan studi kasus dilematis yang tidak memiliki jawaban benar atau salah yang mutlak, untuk memancing diskusi kritis dan debat di kelas. Sertakan 3 pertanyaan pemantik diskusi."</p>
+                    </div>
+                    <button onclick="copyToClipboard()" id="copyBtn" class="w-full py-2 bg-teal-600 hover:bg-teal-500 rounded-lg font-medium transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> <span id="btnText">Salin Prompt</span>
+                    </button>
+                </div>
+
+                <!-- Tools List -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                    <h4 class="font-semibold text-teal-400 mb-6"><i class="fa-solid fa-toolbox mr-2"></i>Rekomendasi Tools</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 p-3 hover:bg-slate-700 rounded-lg transition cursor-pointer">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-bold">P</div>
+                            <div>
+                                <h5 class="font-bold">Perplexity AI</h5>
+                                <p class="text-sm text-slate-400">Mesin pencari berbasis AI dengan sitasi sumber valid.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-3 hover:bg-slate-700 rounded-lg transition cursor-pointer">
+                            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">G</div>
+                            <div>
+                                <h5 class="font-bold">Gamma App</h5>
+                                <p class="text-sm text-slate-400">Membuat slide presentasi dalam hitungan detik.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-3 hover:bg-slate-700 rounded-lg transition cursor-pointer">
+                            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">C</div>
+                            <div>
+                                <h5 class="font-bold">Consensus</h5>
+                                <p class="text-sm text-slate-400">Mencari jawaban berbasis jurnal penelitian ilmiah.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Video Placeholder -->
+    <section id="video" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Rekaman Webinar</h2>
+            <div class="aspect-video max-w-4xl mx-auto bg-slate-200 rounded-2xl shadow-lg flex items-center justify-center relative overflow-hidden group cursor-pointer">
+                <!-- Placeholder for Youtube Embed -->
+                <div class="absolute inset-0 bg-slate-900/50 flex items-center justify-center group-hover:bg-slate-900/40 transition">
+                    <div class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center pl-2 shadow-2xl transform group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-play text-4xl text-brand-600"></i>
+                    </div>
+                </div>
+                <img src="https://placehold.co/1200x675/0f172a/ffffff?text=Coming+Soon&font=roboto" alt="Video Coming Soon" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                        <img src="https://iili.io/fLNBAP4.png" alt="Logo MN" class="h-10 w-auto">
+                        <!-- Tampilan Mobile -->
+                        <span class="md:hidden">MN <span class="text-brand-500">Provinsi Banten</span></span>
+                        <!-- Tampilan Desktop -->
+                        <span class="hidden md:inline">Matematika Nusantara <span class="text-brand-500">Provinsi Banten</span></span>
+                    </a>
+                    <p class="text-slate-500 mt-2 text-sm">Memberdayakan pendidik dengan teknologi.</p>
+                </div>
+                <div class="flex gap-6">
+                    <!-- Telegram -->
+                    <a href="https://t.me/ferilee" target="_blank" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-500 hover:text-white transition shadow-sm">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/6285174244128" target="_blank" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-500 hover:text-white transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/therealferilee" target="_blank" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-500 hover:text-white transition shadow-sm">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 text-center text-sm text-slate-400">
+                &copy; 2026 Feri Lee. Dibuat untuk tujuan pendidikan.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Countdown (Hidden by default) -->
+    <div id="lockModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300 text-center">
+            <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Akses Belum Dibuka</h3>
+            <p class="text-slate-600 mb-6">Materi baru dapat diunduh dan dilihat hari ini mulai pukul <span class="font-bold text-slate-900">12:00 WIB</span>.</p>
+            
+            <div class="bg-slate-100 rounded-xl p-4 mb-6">
+                <p class="text-xs text-slate-500 uppercase tracking-widest mb-1">Menuju Akses Dibuka</p>
+                <div id="countdown" class="text-3xl font-mono font-bold text-brand-600">00:00:00</div>
+            </div>
+            
+            <button onclick="closeModal()" class="w-full py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition">
+                Mengerti
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript untuk Interaksi -->
+    <script>
+        // --- Countdown Logic ---
+        let countdownInterval;
+
+        function checkAccess(event, type) {
+            const now = new Date();
+            const target = new Date();
+            // Set Target: Hari ini jam 12:00:00
+            target.setHours(12, 0, 0, 0); 
+
+            // Jika waktu sekarang sudah melewati target (>= 12:00), izinkan akses
+            if (now >= target) {
+                if (type === 'download' && !event.target.href) {
+                    // Simulasi download untuk tombol dummy
+                    alert('File PDF sedang diunduh...');
+                }
+                return true;
+            }
+
+            // Jika belum waktunya, batalkan aksi dan tampilkan modal
+            event.preventDefault();
+            showModal(target);
+            return false;
+        }
+
+        function showModal(targetTime) {
+            const modal = document.getElementById('lockModal');
+            modal.classList.remove('hidden');
+            
+            // Animasi masuk
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+
+            // Mulai hitung mundur
+            updateCountdown(targetTime);
+            // Bersihkan interval lama jika ada untuk mencegah tabrakan
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => updateCountdown(targetTime), 1000);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('lockModal');
+            
+            // Animasi keluar
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                clearInterval(countdownInterval);
+            }, 300);
+        }
+
+        function updateCountdown(targetTime) {
+            const now = new Date();
+            const diff = targetTime - now;
+
+            if (diff <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerText = "00:00:00";
+                closeModal();
+                alert("Waktu telah tiba! Akses materi sekarang dibuka.");
+                location.reload(); // Reload untuk memastikan semua state bersih
+                return;
+            }
+
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // --- Copy to Clipboard Logic ---
+        function copyToClipboard() {
+            const promptText = document.getElementById("promptText").innerText;
+            const btn = document.getElementById("copyBtn");
+            
+            const textArea = document.createElement("textarea");
+            textArea.value = promptText;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if(successful) {
+                    const originalContent = btn.innerHTML;
+                    btn.classList.remove("bg-teal-600", "hover:bg-teal-500");
+                    btn.classList.add("bg-green-600", "hover:bg-green-500");
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Berhasil Disalin!</span>';
+                    setTimeout(() => {
+                        btn.classList.add("bg-teal-600", "hover:bg-teal-500");
+                        btn.classList.remove("bg-green-600", "hover:bg-green-500");
+                        btn.innerHTML = originalContent;
+                    }, 2000);
+                } else {
+                     throw new Error("Copy command failed");
+                }
+            } catch (err) {
+                console.error('Gagal menyalin: ', err);
+                alert("Gagal menyalin teks. Silakan salin secara manual.");
+            }
+            document.body.removeChild(textArea);
+        }
+    </script>
+</body>
+</html>
