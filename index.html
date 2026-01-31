@@ -198,10 +198,13 @@
                             <i class="fa-regular fa-eye"></i> Preview
                         </a>
                         
-                        <!-- Added logic onclick checkAccess -->
-                        <button onclick="checkAccess(event, 'download')" class="w-full mt-3 py-3 bg-slate-900 rounded-lg text-white font-semibold hover:bg-slate-800 transition flex items-center justify-center gap-2">
+                        <!-- Updated Download Link with logic onclick checkAccess -->
+                        <a href="https://drive.google.com/file/d/1JVRJ548YoOoQq8xLrSf7pldS7wwA6SXu/view?usp=sharing" 
+                           target="_blank" 
+                           onclick="return checkAccess(event)"
+                           class="w-full mt-3 py-3 bg-slate-900 rounded-lg text-white font-semibold hover:bg-slate-800 transition flex items-center justify-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-download"></i> Download PDF
-                        </button>
+                        </a>
                     </div>
                 </div>
 
